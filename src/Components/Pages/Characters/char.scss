@@ -1,0 +1,29 @@
+.char {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 3fr 8fr;
+  gap: 1rem;
+}
+
+.char-content {
+  > h5 {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--clr-p);
+  }
+}
+
+.clear-filter {
+  span {
+    font-weight: 500;
+  }
+  button {
+    border: none;
+    background-color: transparent;
+    color: var(--clr-p);
+    text-decoration: underline;
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}

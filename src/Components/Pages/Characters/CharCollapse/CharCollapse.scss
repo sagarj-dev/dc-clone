@@ -1,0 +1,45 @@
+.char-collapse-container {
+  margin: 0.5rem 0;
+}
+.char-collapse-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.char-collapse-basicDetails {
+  display: flex;
+}
+
+.char-image-main {
+  position: relative;
+
+  img {
+    width: 60px;
+  }
+
+  p {
+    position: absolute;
+    top: 5px;
+    background-color: rgba(193, 193, 193, 0.419);
+  }
+}
+
+.char-name {
+  align-self: center;
+  margin-left: 1rem;
+  h5 {
+    font-size: 1.3rem;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    white-space: 2px;
+  }
+
+  svg {
+    margin-left: 0.5rem;
+  }
+}

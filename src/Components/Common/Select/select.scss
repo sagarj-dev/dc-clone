@@ -1,0 +1,32 @@
+#standard-select {
+  // A reset of styles, including removing the default dropdown arrow
+  appearance: none;
+  // Additional resets for further consistency
+  background-color: transparent;
+  border: 2px solid var(--clr-p);
+  border-radius: 5px;
+  padding: 0.7rem;
+  //   width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+.select {
+  position: relative;
+}
+#standard-select:focus + .focus {
+  //   appearance: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border: 2px solid var(--clr-p);
+  border-radius: 5px;
+}
+
+option:hover {
+  background-color: red;
+  z-index: 1;
+}

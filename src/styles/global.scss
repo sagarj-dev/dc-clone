@@ -1,0 +1,27 @@
+@import "./vars.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font;
+}
+body {
+  background-color: #f7f7fd;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clr-m {
+  color: var(--clr-mystical);
+}
+.clr-p {
+  color: var(--clr-mystical);
+}
+.clr-e {
+  color: var(--clr-energy);
+}

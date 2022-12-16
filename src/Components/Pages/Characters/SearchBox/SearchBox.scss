@@ -1,0 +1,16 @@
+.searchBox {
+  margin: 1rem 0;
+  input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--background-clr-grey);
+    outline: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    &:focus {
+      border: 1px solid var(--clr-p);
+      box-shadow: 0px 0px 5px 0px var(--clr-p);
+    }
+  }
+}
