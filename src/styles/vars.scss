@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
-
-$font: "Roboto", sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@200&display=swap");
+$font: "Nunito Sans", sans-serif;
 
 :root {
   --clr-p: #7065f0;
@@ -8,6 +8,10 @@ $font: "Roboto", sans-serif;
   --background-clr-grey: #e8ecef;
   --font-clr: #000000;
   --font-clr-grey: #8a8a8a;
+  --clr-mystical: #146183;
+  --clr-physical: #83322f;
+  --clr-energy: #317349;
+  --font2: "Big Shoulders Display", "cursive";
 }
 [data-theme="dark"] {
   --clr-p: #61c554;
@@ -15,4 +19,7 @@ $font: "Roboto", sans-serif;
   --background-clr-grey: #000;
   --font-clr: #fff;
   --font-clr-grey: #8a8a8a;
+  --clr-mystical: #15ade0;
+  --clr-power: #f0425c;
+  --clr-energy: #1a6c4b;
 }

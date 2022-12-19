@@ -4,8 +4,12 @@ import "./char.scss";
 import CharCollapse from "./CharCollapse/CharCollapse";
 import Filters from "./Filters/Filters";
 import SearchBox from "./SearchBox/SearchBox";
+import { characters, charType } from "../../../data/pure-data";
+import { useAppSelector } from "../../../redux/hooks/redux-hooks";
 
 const Characters = () => {
+  const data = useAppSelector((state) => state.data.filteredData);
+
   return (
     <div className="char">
       <div className="char-filters">
@@ -19,12 +23,9 @@ const Characters = () => {
           <button>Clear All Filters</button>
         </div>
         <div className="allChar">
-          <CharCollapse />
-          <CharCollapse />
-          <CharCollapse />
-          <CharCollapse />
-          <CharCollapse />
-          <CharCollapse />
+          {data.map((d) => (
+            <CharCollapse chardata={d} />
+          ))}
         </div>
       </div>
     </div>

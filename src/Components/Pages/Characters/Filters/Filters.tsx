@@ -16,12 +16,9 @@ import {
 
 type FilterType = {
   sortby: string;
-  leader: string;
+
   affinity: string;
-  damageType: string;
-  provenance: string;
-  gender: string;
-  morality: string;
+
   buffs: string[];
   debuffs: string[];
   effects: string[];
@@ -32,12 +29,7 @@ type FilterType = {
 const Filters = () => {
   const [filters, setFilters] = React.useState<FilterType>({
     sortby: "tier",
-    leader: "",
     affinity: "",
-    damageType: "",
-    provenance: "",
-    gender: "",
-    morality: "",
     buffs: [],
     debuffs: [],
     effects: [],
@@ -65,12 +57,12 @@ const Filters = () => {
       </Collapse>
       <Collapse title="FILTER">
         <div>
-          <RadioButton
+          {/* <RadioButton
             label="leader"
             data={[{ label: "Leader", value: "leader" }]}
             onChangeValue={handleFilterChange}
           />
-          <Divider />
+          <Divider /> */}
           <p>Affinity</p>
           <RadioButton
             label="affinity"
@@ -78,14 +70,14 @@ const Filters = () => {
             onChangeValue={handleFilterChange}
           />
           <Divider />
-          <p>Damage Type</p>
-          <RadioButton
+          {/* <p>Damage Type</p> */}
+          {/* <RadioButton
             label="damageType"
             data={damageTypeData}
             onChangeValue={handleFilterChange}
           />
-          <Divider />
-          <p>Provenance</p>
+          <Divider /> */}
+          {/* <p>Provenance</p>
           <RadioButton
             label="provenance"
             data={[
@@ -114,7 +106,7 @@ const Filters = () => {
             ]}
             onChangeValue={handleFilterChange}
           />
-          <Divider />
+          <Divider /> */}
         </div>
       </Collapse>
       <Collapse title="Buffs">
