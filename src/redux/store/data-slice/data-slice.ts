@@ -1,17 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DataModel, filtersModel } from "../../models/redux-models";
+import { DataModel, FiltersModel, sortbyType } from "../../models/redux-models";
 import { characters, charType } from "../../../data/pure-data";
 let initialState: DataModel = {
   data: characters,
   filteredData: characters,
   filters: {
     search: "",
-    sortby: "tier",
+    sortby: "Tier",
     affinity: [],
     buffs: [],
     debuffs: [],
     affiliations: [],
-    gearset: [],
+    gearSet: [],
+    effects: [],
   },
 };
 
@@ -22,59 +23,117 @@ const searchChange = (chars: charType[], sString: string): charType[] => {
   });
 };
 
-// const handleSorting = (chars: charType[], sortby: string): charType[] => {
-//   switch (sortby) {
-//     case "Tier":
-//       const s = chars.filter((char) => char.tier == "s");
-//       const a = chars.filter((char) => char.tier == "a");
-//       const b = chars.filter((char) => char.tier == "b");
-//       const c = chars.filter((char) => char.tier == "c");
-//       const t = chars.filter((char) => char.tier == "t");
-//       const q = chars.filter((char) => char.tier == "?");
-//       return [...s, ...a, ...b, ...c, ...t, ...q];
-//       break;
-//     case "Name":
-//       return chars.sort((a, b) => a.name.localeCompare(a.name));
+const handleSorting = (chars: charType[], sortby: sortbyType): charType[] => {
+  const sorbyAffinity = (chars: charType[]): charType[] => {
+    return chars.sort((a, b) => b.affinity.localeCompare(a.affinity));
+  };
+  switch (sortby) {
+    case "Tier":
+      const s = sorbyAffinity(chars.filter((char) => char.tier == "S"));
+      const a = sorbyAffinity(chars.filter((char) => char.tier == "A"));
+      const b = sorbyAffinity(chars.filter((char) => char.tier == "B"));
+      const c = sorbyAffinity(chars.filter((char) => char.tier == "C"));
+      const t = sorbyAffinity(chars.filter((char) => char.tier == "T"));
+      const q = sorbyAffinity(chars.filter((char) => char.tier == "?"));
 
-//       break;
-//     case "Speed":
-//       return chars.sort(function(a,b) {
+      return [...s, ...a, ...b, ...c, ...t, ...q];
 
-//       });
+    case "Name":
+      return chars.sort((a, b) => a.name.localeCompare(b.name));
 
-//       break;
-//     case "HP":
-//       return chars.sort((a, b) => a.HP.localeCompare(a.HP));
+    default:
+      return chars.sort((a, b) =>
+        parseInt(a[sortby]) < parseInt(b[sortby]) ? 1 : -1
+      );
+  }
+};
 
-//       break;
-//     case "STR":
-//       return chars.sort((a, b) => a.HP.localeCompare(a.HP));
+const handleFilters = (
+  chars: charType[],
+  filters: FiltersModel
+): charType[] => {
+  let FilteredData: charType[] = chars;
 
-//       break;
-//     case "INT":
-//       return chars.sort((a, b) => a.INT.localeCompare(a.INT));
+  if (filters.affinity.length) {
+    FilteredData = FilteredData.filter((a) =>
+      filters.affinity.includes(a.affinity)
+    ).sort((a, b) => b.affinity.localeCompare(a.affinity));
+  }
 
-//       break;
+  if (filters.buffs.length) {
+    FilteredData = FilteredData.filter(
+      (a) =>
+        a.CombatEffects.filter((element) => filters.buffs.includes(element))
+          .length
+    );
+  }
 
-//     default:
-//       return chars;
-//       break;
-//   }
-// };
+  if (filters.debuffs.length) {
+    FilteredData = FilteredData.filter(
+      (a) =>
+        a.CombatEffects.filter((element) => filters.debuffs.includes(element))
+          .length
+    );
+  }
+
+  if (filters.affiliations.length) {
+    FilteredData = FilteredData.filter((a) =>
+      filters.affiliations.includes(a.Affiliations)
+    );
+  }
+
+  if (filters.gearSet.length) {
+    FilteredData = FilteredData.filter((a) =>
+      filters.gearSet.includes(a.GearSet)
+    );
+  }
+
+  return FilteredData;
+};
 
 const DataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    handleFilterChange(state, action: PayloadAction<filtersModel>) {
+    handleFilterChange(state, action: PayloadAction<FiltersModel>) {
+      const temp = state.filters.search;
       state.filters = { ...action.payload };
+      state.filters.search = temp;
+      console.log(state.filters.search);
+
+      state.filteredData = searchChange(
+        handleFilters(state.data, state.filters),
+        temp
+      );
     },
     handleSearchChange(state, action: PayloadAction<string>) {
       state.filters.search = action.payload;
-      state.filteredData = searchChange(state.data, state.filters.search);
+      state.filteredData = searchChange(
+        handleFilters(state.data, state.filters),
+        state.filters.search
+      );
+    },
+    handleSortChange(state, action: PayloadAction<sortbyType>) {
+      state.filters.sortby = action.payload;
+      state.filteredData = handleSorting(
+        searchChange(
+          handleFilters(state.data, state.filters),
+          state.filters.search
+        ),
+        action.payload
+      );
+    },
+    clearAllFilters(state) {
+      state.filters = initialState.filters;
+      state.filteredData = state.data;
     },
   },
 });
 
 export default DataSlice;
-export const { handleFilterChange, handleSearchChange } = DataSlice.actions;
+export const {
+  handleFilterChange,
+  handleSearchChange,
+  handleSortChange,
+  clearAllFilters,
+} = DataSlice.actions;

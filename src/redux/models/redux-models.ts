@@ -6,25 +6,21 @@ export interface settingModel {
   theme: string;
 }
 
-export interface FilterModel {
-  category?: string;
-  offset: number;
-  rating?: string;
-  q?: string;
-}
+export type sortbyType = "Tier" | "Name" | "SPD" | "HP" | "STR" | "INT";
 
-export interface filtersModel {
+export interface FiltersModel {
   search: string;
-  sortby: string;
+  sortby: "Tier" | "Name" | "SPD" | "HP" | "STR" | "INT";
   affinity: string[];
   buffs: string[];
+  effects: string[];
   debuffs: string[];
   affiliations: string[];
-  gearset: string[];
+  gearSet: string[];
 }
 
 export interface DataModel {
   data: charType[];
   filteredData: charType[];
-  filters: filtersModel;
+  filters: FiltersModel;
 }

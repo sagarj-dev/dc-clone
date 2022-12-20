@@ -20,12 +20,12 @@ const RadioButton = ({ label, data, onChangeValue }: RadioButtonType) => {
       }
     >
       {data.map((d) => (
-        <>
+        <div key={d.value}>
           <input type="radio" id={d.label} name={label} value={d.value} />
           <label htmlFor={d.label} className="radioLabel">
             {d.label}
           </label>
-        </>
+        </div>
       ))}
     </div>
   );

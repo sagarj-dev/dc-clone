@@ -8,10 +8,11 @@ type OptionsType = {
 
 type SelectButtonType = {
   data: OptionsType[];
+  title: string;
   onChangeValue: (v: string) => void;
 };
 
-const SelectTwo = ({ data, onChangeValue }: SelectButtonType) => {
+const SelectTwo = ({ data, onChangeValue, title }: SelectButtonType) => {
   const [listState, setListState] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
 
@@ -32,7 +33,7 @@ const SelectTwo = ({ data, onChangeValue }: SelectButtonType) => {
         setListState(!listState);
       }}
     >
-      <span className="selectLabel">{selectedItem || "Sagar"}</span>
+      <span className="selectLabel">{selectedItem || title}</span>
       <ul
         className={`${listState ? "selectList selectList-open" : "selectList"}`}
       >
@@ -45,6 +46,7 @@ const SelectTwo = ({ data, onChangeValue }: SelectButtonType) => {
                 e.currentTarget.dataset.name
               );
             }}
+            key={d.value}
             data-value={d.value}
             data-name={d.label}
           >

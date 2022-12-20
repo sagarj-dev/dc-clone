@@ -29,7 +29,7 @@ const CharCollapse = ({ chardata }: CharCollapseType) => {
       <div className="char-collapse-header" onClick={() => setOpen(!open)}>
         <div className="char-collapse-basicDetails">
           <div className="char-image-main">
-            <p>S</p>
+            <p>{chardata.tier}</p>
             <img
               src={`https://dcltoolkit.com/img/characters/basic/${chardata.subName
                 .toLowerCase()
@@ -143,7 +143,7 @@ const CharCollapse = ({ chardata }: CharCollapseType) => {
         </div>
         <div className="combat-effects">
           <h5>Combat Effects</h5>
-          <p>{chardata.CombatEffects}</p>
+          <p>{chardata.CombatEffects.join(", ")}</p>
         </div>
         <div className="affiliations">
           <h5>Affiliations</h5>

@@ -18,15 +18,9 @@
   margin-top: 1rem;
   max-width: 100%;
   max-height: 0;
-  //   transform: scaleY(0);
+
   overflow: hidden;
   transition: all 0.3s ease-out;
-}
-
-.collapse-open {
-  //   transform: scaleY(1);
-
-  max-height: 100%;
 }
 
 .collapse-icon {

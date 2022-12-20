@@ -1,7 +1,7 @@
 const sortByData = [
   { label: "Tier", value: "Tier" },
   { label: "Name", value: "Name" },
-  { label: "Speed", value: "Speed" },
+  { label: "Speed", value: "SPD" },
   { label: "HP", value: "HP" },
   { label: "Strength", value: "STR" },
   { label: "Intelligence", value: "INT" },
@@ -152,6 +152,86 @@ const gearsetData = [
   { label: "Special Tank", value: "Special Tank" },
 ];
 
+var gearTable = [
+  {
+    mat1: { lvl1: 4, lvl2: 0, lvl3: 0 },
+    mat2: { lvl1: 2, lvl2: 0, lvl3: 0 },
+    mat3: { lvl1: 2, lvl2: 0, lvl3: 0 },
+    mat4: { lvl1: 4, lvl2: 0, lvl3: 0 },
+    esnc: { lvl1: 1000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 8, lvl2: 0, lvl3: 0 },
+    mat2: { lvl1: 4, lvl2: 0, lvl3: 0 },
+    mat3: { lvl1: 4, lvl2: 0, lvl3: 0 },
+    mat4: { lvl1: 8, lvl2: 0, lvl3: 0 },
+    esnc: { lvl1: 3000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 12, lvl2: 4, lvl3: 0 },
+    mat2: { lvl1: 6, lvl2: 8, lvl3: 0 },
+    mat3: { lvl1: 6, lvl2: 8, lvl3: 0 },
+    mat4: { lvl1: 12, lvl2: 4, lvl3: 0 },
+    esnc: { lvl1: 6000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 16, lvl2: 6, lvl3: 0 },
+    mat2: { lvl1: 8, lvl2: 12, lvl3: 0 },
+    mat3: { lvl1: 8, lvl2: 12, lvl3: 0 },
+    mat4: { lvl1: 16, lvl2: 6, lvl3: 0 },
+    esnc: { lvl1: 18000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 20, lvl2: 8, lvl3: 6 },
+    mat2: { lvl1: 10, lvl2: 16, lvl3: 12 },
+    mat3: { lvl1: 10, lvl2: 16, lvl3: 6 },
+    mat4: { lvl1: 20, lvl2: 8, lvl3: 12 },
+    esnc: { lvl1: 36000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 24, lvl2: 10, lvl3: 8 },
+    mat2: { lvl1: 12, lvl2: 20, lvl3: 16 },
+    mat3: { lvl1: 12, lvl2: 20, lvl3: 8 },
+    mat4: { lvl1: 24, lvl2: 10, lvl3: 16 },
+    esnc: { lvl1: 60000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 28, lvl2: 12, lvl3: 10 },
+    mat2: { lvl1: 29, lvl2: 24, lvl3: 20 },
+    mat3: { lvl1: 29, lvl2: 24, lvl3: 10 },
+    mat4: { lvl1: 28, lvl2: 12, lvl3: 20 },
+    esnc: { lvl1: 90000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 32, lvl2: 44, lvl3: 12 },
+    mat2: { lvl1: 31, lvl2: 28, lvl3: 24 },
+    mat3: { lvl1: 31, lvl2: 28, lvl3: 12 },
+    mat4: { lvl1: 32, lvl2: 44, lvl3: 24 },
+    esnc: { lvl1: 126000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 36, lvl2: 61, lvl3: 14 },
+    mat2: { lvl1: 48, lvl2: 32, lvl3: 28 },
+    mat3: { lvl1: 48, lvl2: 32, lvl3: 14 },
+    mat4: { lvl1: 36, lvl2: 61, lvl3: 28 },
+    esnc: { lvl1: 180000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 40, lvl2: 18, lvl3: 76 },
+    mat2: { lvl1: 50, lvl2: 36, lvl3: 32 },
+    mat3: { lvl1: 50, lvl2: 36, lvl3: 16 },
+    mat4: { lvl1: 40, lvl2: 18, lvl3: 92 },
+    esnc: { lvl1: 270000, lvl2: 0, lvl3: 0 },
+  },
+  {
+    mat1: { lvl1: 40, lvl2: 185, lvl3: 60 },
+    mat2: { lvl1: 80, lvl2: 100, lvl3: 195 },
+    mat3: { lvl1: 80, lvl2: 50, lvl3: 195 },
+    mat4: { lvl1: 40, lvl2: 235, lvl3: 60 },
+    esnc: { lvl1: 420000, lvl2: 0, lvl3: 0 },
+  },
+];
+
 export {
   affiliationsData,
   affinityData,
@@ -161,4 +241,5 @@ export {
   effectsData,
   gearsetData,
   sortByData,
+  gearTable,
 };

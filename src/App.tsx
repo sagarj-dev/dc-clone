@@ -7,6 +7,7 @@ import Navbar from "./Components/Navbar";
 import Container from "./Components/Common/Container/Container";
 import Collapse from "./Components/Common/Collapse/Collapse";
 import Characters from "./Components/Pages/Characters";
+import GearCalculator from "./Components/Pages/Calculators/GearCalculator";
 
 function App() {
   return (

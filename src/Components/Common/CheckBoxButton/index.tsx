@@ -35,12 +35,12 @@ const CheckBoxButton = ({ label, data, onChangeValue }: CheckBoxButtonType) => {
       }
     >
       {data.map((d) => (
-        <>
+        <div key={d.value}>
           <input type="checkbox" id={d.label} name={label} value={d.value} />
           <label htmlFor={d.label} className="checkboxLabel">
             {d.label}
           </label>
-        </>
+        </div>
       ))}
     </div>
   );

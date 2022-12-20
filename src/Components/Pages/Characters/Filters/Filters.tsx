@@ -13,39 +13,57 @@ import {
   effectsData,
   gearsetData,
 } from "../../../../data/data";
-
-type FilterType = {
-  sortby: string;
-
-  affinity: string;
-
-  buffs: string[];
-  debuffs: string[];
-  effects: string[];
-  affiliations: string[];
-  grearSet: string[];
-};
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../redux/hooks/redux-hooks";
+import {
+  handleSortChange,
+  handleFilterChange as hfs,
+} from "../../../../redux/store/data-slice/data-slice";
+import {
+  FiltersModel,
+  sortbyType,
+} from "../../../../redux/models/redux-models";
 
 const Filters = () => {
-  const [filters, setFilters] = React.useState<FilterType>({
-    sortby: "tier",
-    affinity: "",
+  const [filters, setFilters] = React.useState<FiltersModel>({
+    search: "",
+    sortby: "Tier",
+    affinity: [],
     buffs: [],
     debuffs: [],
     effects: [],
     affiliations: [],
-    grearSet: [],
+    gearSet: [],
   });
+  const mainstate = useAppSelector((state) => state.data.filters);
+  const dispatch = useAppDispatch();
+
   const handleFilterChange = (
     filter: string,
     value: string | string[]
   ): void => {
     setFilters({ ...filters, [filter]: value });
+    if (filter == "sortby") {
+      dispatch(handleSortChange(value as sortbyType));
+    } else {
+      dispatch(hfs({ ...filters, [filter]: value, search: "" }));
+    }
   };
 
   React.useEffect(() => {
-    console.log(filters);
-  }, [filters]);
+    setFilters({
+      search: "",
+      sortby: "Tier",
+      affinity: [],
+      buffs: [],
+      debuffs: [],
+      effects: [],
+      affiliations: [],
+      gearSet: [],
+    });
+  }, [mainstate]);
   return (
     <div>
       <Collapse title="SORT">
@@ -55,7 +73,7 @@ const Filters = () => {
           onChangeValue={handleFilterChange}
         />
       </Collapse>
-      <Collapse title="FILTER">
+      <Collapse title="Affinity">
         <div>
           {/* <RadioButton
             label="leader"
@@ -63,8 +81,8 @@ const Filters = () => {
             onChangeValue={handleFilterChange}
           />
           <Divider /> */}
-          <p>Affinity</p>
-          <RadioButton
+
+          <CheckBoxButton
             label="affinity"
             data={affinityData}
             onChangeValue={handleFilterChange}
@@ -139,7 +157,7 @@ const Filters = () => {
       </Collapse>
       <Collapse title="Gear Set">
         <CheckBoxButton
-          label="grearSet"
+          label="gearSet"
           data={gearsetData}
           onChangeValue={handleFilterChange}
         />
