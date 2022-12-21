@@ -1,0 +1,81 @@
+.GearCalculator {
+  margin-top: 2rem;
+
+  h5 {
+    font-size: 1.3rem;
+  }
+}
+
+.gearcContainer {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.gearc-options {
+  width: 100%;
+  h5 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--clr-p);
+    outline: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    &:focus {
+      border: 1px solid var(--clr-p);
+      box-shadow: 0px 0px 5px 0px var(--clr-p);
+    }
+  }
+}
+
+.gearcResult {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  h5 {
+    // color: red;
+    font-size: 2rem;
+  }
+  img {
+    width: 60px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+
+      background-color: var(--clr-p);
+      color: white;
+    }
+    tr {
+      &:nth-child(even) {
+        background-color: #e8e8fa;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .gearcContainer {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
+
+  .gearcResult {
+    width: 100%;
+  }
+}

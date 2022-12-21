@@ -232,6 +232,43 @@ var gearTable = [
   },
 ];
 
+var rankTotals = {
+  "no-stars": [0, 10, 0, 0],
+  "rank-1": [10, 15, 5000, 0],
+  "rank-2": [25, 25, 10000, 0],
+  "rank-3": [50, 40, 50000, 0],
+  "rank-4": [90, 60, 100000, 0],
+  "rank-5": [150, 90, 0, 100],
+  "legendary-1": [240, 130, 0, 1000],
+  "legendary-2": [370, 180, 0, 5000],
+  "legendary-3": [550, 240, 0, 25000],
+  "legendary-4": [790, 310, 0, 100000],
+  "legendary-5": [1100, 410, 0, 0],
+  "rebirth-1": [1510, 610, 0, 0],
+  "rebirth-2": [2120, 910, 0, 0],
+  "rebirth-3": [3030, 1310, 0, 0],
+  "rebirth-4": [4340, 1810, 0, 0],
+  "rebirth-5": [6150, 0, 0, 0],
+};
+
+export type rankTotalsType =
+  | "no-stars"
+  | "rank-1"
+  | "rank-2"
+  | "rank-3"
+  | "rank-4"
+  | "rank-5"
+  | "legendary-1"
+  | "legendary-2"
+  | "legendary-3"
+  | "legendary-4"
+  | "legendary-5"
+  | "rebirth-1"
+  | "rebirth-2"
+  | "rebirth-3"
+  | "rebirth-4"
+  | "rebirth-5";
+
 export {
   affiliationsData,
   affinityData,
@@ -242,4 +279,5 @@ export {
   gearsetData,
   sortByData,
   gearTable,
+  rankTotals,
 };

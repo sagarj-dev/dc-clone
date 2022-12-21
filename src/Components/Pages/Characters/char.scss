@@ -27,3 +27,10 @@
     cursor: pointer;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .char {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

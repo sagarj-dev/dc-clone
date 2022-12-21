@@ -3,7 +3,20 @@ import { gearTable } from "../../../../data/data";
 import SelectTwo from "../../../Common/Select/selectTwo";
 import "./GearCalculator.scss";
 
-const data = [
+const data0 = [
+  { label: "0", value: "0" },
+  { label: "1", value: "1" },
+  { label: "2", value: "2" },
+  { label: "3", value: "3" },
+  { label: "4", value: "4" },
+  { label: "5", value: "5" },
+  { label: "6", value: "6" },
+  { label: "7", value: "7" },
+  { label: "8", value: "8" },
+  { label: "9", value: "9" },
+  { label: "10", value: "10" },
+];
+const data1 = [
   { label: "1", value: "1" },
   { label: "2", value: "2" },
   { label: "3", value: "3" },
@@ -29,7 +42,6 @@ const calculate = (start: number, end: number) => {
 
   for (var i = start; i < end; i++) {
     var materialRow = gearTable[i];
-    //   addMaterials(materialRow, pieceTotals);
 
     for (var material in materialRow) {
       if (
@@ -85,17 +97,17 @@ const GearCalculator = () => {
         <div className="gearc-options">
           <h5>Current Gear Level</h5>
           <SelectTwo
-            data={data}
+            data={data0}
             key={1}
-            title="select"
+            title="0"
             onChangeValue={(v) => setCurrentLvl(parseInt(v))}
           />
           <br />
           <h5>Goal Gear Level</h5>
           <SelectTwo
-            data={data}
+            data={data1}
             key={2}
-            title="select"
+            title="Goal Gear Level"
             onChangeValue={(v) => setGoalLvl(parseInt(v))}
           />
         </div>

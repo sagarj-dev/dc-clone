@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.scss";
 import { FaBars } from "react-icons/fa";
 import { GrClose } from "react-icons/gr";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [drawer, setDrawer] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -18,7 +19,9 @@ const Navbar = () => {
         <ul
           className={`${mobileMenu ? "navlinks" : "navlinks open-mobile-menu"}`}
         >
-          <li className="navlink">Characters</li>
+          <li className="navlink">
+            <Link to="/characters">Characters</Link>
+          </li>
           <li
             className="navlink navlink-dropdown"
             onClick={() => setDrawer(!drawer)}
@@ -31,13 +34,14 @@ const Navbar = () => {
                   : "navlink-dropdown-menu"
               }`}
             >
-              <li>Gear Materials</li>
-              <li>Character Fragments</li>
-              <li>Speed</li>
-              <li>Upgrade Cost</li>
+              <Link to="/gearcalc">
+                <li>Gear Materials</li>
+              </Link>
+              <Link to="/charfragcalc">
+                <li>Character Fragments</li>
+              </Link>
             </ul>
           </li>
-          <li className="navlink">Calendar</li>
         </ul>
       </div>
       <div className="navbar-right" onClick={() => setMobileMenu(!mobileMenu)}>
