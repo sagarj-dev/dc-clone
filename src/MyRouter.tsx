@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Container from "./Components/Common/Container/Container";
 import Navbar from "./Components/Navbar";
@@ -5,7 +6,7 @@ import FragsCalculator from "./Components/Pages/Calculators/FragsCalculator";
 import GearCalculator from "./Components/Pages/Calculators/GearCalculator";
 import Characters from "./Components/Pages/Characters";
 
-function App() {
+const MyRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
@@ -19,6 +20,6 @@ function App() {
       </Container>
     </BrowserRouter>
   );
-}
+};
 
-export default App;
+export default MyRouter;
